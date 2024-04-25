@@ -45,4 +45,4 @@ USER jovyan
 # Start the Jupyter Notebook server when the container launches
 # The base image already configures Jupyter to run on start, but you can customize
 # startup options here if needed.
-CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password=''", "--allow-root"]
+CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password='sha1:14d420c95a5e:7bdf17ae852b0c29d9c6b4f101048850df6b62d6'", "--allow-root"]
