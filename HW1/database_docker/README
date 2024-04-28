@@ -1,0 +1,18 @@
+To run the container run the following:
+
+docker build -t eda .
+
+docker pull mysql:latest
+
+docker network create my-network
+
+docker run -p 8888:8888 --network my-network eda
+
+docker run -d --name my-mysql \
+    -e MYSQL_ROOT_PASSWORD=root \
+    -e MYSQL_DATABASE=mydb \
+    --network my-network \
+    mysql
+
+
+docker exec -it my-jupyter-container mysql -uroot -p
