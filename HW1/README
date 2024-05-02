@@ -1,3 +1,4 @@
 1.) Execute the run.sh script to create and launch the necessary containers (etl-container and postgres-container). Additionally, open a shell within the etl-container.
 2.) Launch the Jupyter Notebook by entering jupyter notebook --ip=0.0.0.0 in the shell. Can also just use the link the run command provides
 3.) Once the Jupyter Notebook is running, execute all the cells in the etl.ipynb notebook to complete the data transformation and loading process.
+# Note that Lab 5 is a part of this HW1 resubmission
