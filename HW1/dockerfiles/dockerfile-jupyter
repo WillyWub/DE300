@@ -1,0 +1,40 @@
+# Use the official Python image
+FROM python:latest
+
+
+
+
+# Create a new user and set permissions
+RUN useradd -m Wilson
+
+
+# Set ownership of the working directory
+WORKDIR /app
+RUN chown -R Wilson /app
+
+
+
+
+# Create a virtual environment
+RUN python -m venv /venv
+
+# Activate the virtual environment
+ENV PATH="/venv/bin:${PATH}"
+
+RUN pip install pandas sqlalchemy psycopg2-binary jupyter pyarrow numpy matplotlib scipy
+
+
+#switch to non-root user
+USER Wilson
+
+
+# Copy ETL scripts or Jupyter notebooks into the container
+COPY ./data/* /app/rawdata/
+#COPY my_notebook.ipynb /app/my_notebook.ipynb  # Optional: If you have notebooks to copy
+
+# Expose the Jupyter Notebook port
+EXPOSE 8888
+
+# Command to run Jupyter Notebook
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+#CMD ["/bin/bash"]
