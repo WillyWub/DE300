@@ -1,0 +1,31 @@
+# Use the official Python image
+FROM python:latest
+
+
+
+
+# Create a new user and set permissions
+RUN useradd -m Wilson_HW2
+
+
+# Set ownership of the working directory
+WORKDIR /app
+RUN chown -R Wilson_HW2 /app
+
+RUN pip install pandas jupyter numpy boto3 requests scrapy beautifulsoup4 scikit-learn
+
+
+#switch to non-root user
+USER Wilson_HW2
+
+
+# Copy ETL scripts or Jupyter notebooks into the container
+#COPY ./data/* /app/rawdata/
+#COPY my_notebook.ipynb /app/my_notebook.ipynb  # Optional: If you have notebooks to copy
+
+# Expose the Jupyter Notebook port
+EXPOSE 8888
+
+# Command to run Jupyter Notebook
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+#CMD ["/bin/bash"]

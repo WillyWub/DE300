@@ -1,0 +1,3 @@
+1.) Execute the run.sh script with  bash run.sh to create and launch the necessary containers (HW2-container).
+2.) Launch the Jupyter Notebook by entering jupyter notebook --ip=0.0.0.0 in the shell. Can also just use the link the run command provides
+3.) Once the Jupyter Notebook is running, execute all the cells in the HW2_work.ipynb notebook.
