@@ -174,7 +174,9 @@ def main():
     data = feature_engineering(data)
     bias_marital_status(data)
     data = join_with_US_gender(spark, data)
-    data.write.csv("data/transformed_data.csv", header=True, mode="overwrite")
+    data = data.toPandas()
+    data.to_csv("data/transformed_data.csv", header = True, index=False)
+    
 
     spark.stop()
 main()
