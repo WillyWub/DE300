@@ -161,15 +161,7 @@ def join_with_US_gender(spark: SparkSession, data: DataFrame):
 
     return data.join(us_df, data.marital_status == us_df.marital_status_statistics, 'outer')
 
-def age(data: DataFrame):
-    selected_df = data.filter((data['age'] >= 30) & (data['age'] <= 50))
 
-    # Convert the selected PySpark DataFrame to a Pandas DataFrame
-    pandas_df = selected_df.toPandas()
-
-    # Print out summary statistics using .describe()
-    return pandas_df
-    print(pandas_df.describe())
 def main():
     # Create a Spark session
     spark = SparkSession.builder \
@@ -182,8 +174,7 @@ def main():
     data = feature_engineering(data)
     bias_marital_status(data)
     data = join_with_US_gender(spark, data)
-    data = age(data)
-    data.to_csv("data/transformed_data.csv", header=True, index=False)
+    data.write.csv("data/transformed_data.csv", header=True, mode="overwrite")
 
     spark.stop()
 main()
