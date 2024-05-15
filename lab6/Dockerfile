@@ -21,6 +21,7 @@ RUN /bin/bash -c "source demos/bin/activate && \
     pip install numpy venv-pack jupyter && \
     pip install pyspark==3.4.0 && \
     pip install jupyter && \
+    pip install pandas && \
     demos/bin/venv-pack -o demos.tar.gz"
 
 # Expose port 8888 for Jupyter Notebook
