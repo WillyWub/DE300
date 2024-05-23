@@ -1,0 +1,7 @@
+DataFrame[age: int, sex: int, painloc: int, painexer: int, cp: int, trestbps: double, smoke: double, fbs: int, prop: int, nitr: int, pro: int, diuretic: int, thaldur: double, thalach: int, exang: int, oldpeak: double, slope: int, target: int, source_1: double, source_2: double]
+The best model is Logistic Regression with an accuracy of 0.76
+Test set accuracy: 0.76
+/mnt/yarn/usercache/hadoop/appcache/application_1716426292162_0001/container_1716426292162_0001_01_000001/pyspark.zip/pyspark/sql/context.py:159: FutureWarning: Deprecated in 3.0.0. Use SparkSession.builder.getOrCreate() instead.
+Classification report on test set:
+[[24. 10.]
+ [ 7. 31.]]
