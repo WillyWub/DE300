@@ -1,0 +1,1 @@
+To run, go to EMR cluster on AWS, then clone the hw3wilson cluster with the same settings. When you finish cloning the step should run automatically and after waiting for 5-10 minutes, check the hw3wilson bucket in S3 buckets and go to the job folder, container folder, and the output file.
